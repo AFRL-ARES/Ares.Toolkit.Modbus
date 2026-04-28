@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="Ares.Toolkit.Modbus.Tests/Ares.Toolkit.Modbus.Tests.csproj" />
+  <Project Path="Ares.Toolkit.Modbus/Ares.Toolkit.Modbus.csproj" />
+</Solution>
