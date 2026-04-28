@@ -96,3 +96,6 @@ The library throws specific exceptions to help diagnose communication issues:
 - `ModbusServerException`: The device returned a protocol error (includes Function Code and Exception Code).
 - `ModbusTimeoutException`: The device failed to respond within the expected timeframe.
 - `ModbusException`: General communication or framing errors.
+
+## CLEARANCE
+Distribution A. Approved for public release: distribution unlimited. AFRL-2025-5329
