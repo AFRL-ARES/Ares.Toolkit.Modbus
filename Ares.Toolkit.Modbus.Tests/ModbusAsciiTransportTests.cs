@@ -1,10 +1,7 @@
 using Ares.Toolkit.Modbus.Transports;
 using Ares.Toolkit.Serial;
 using Ares.Toolkit.Serial.Simulation;
-using NUnit.Framework;
-using System.Threading.Tasks;
 using System.IO.Ports;
-using System.Linq;
 
 namespace Ares.Toolkit.Modbus.Tests;
 

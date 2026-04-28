@@ -1,9 +1,4 @@
 using Moq;
-using NUnit.Framework;
-using Ares.Toolkit.Modbus.Transports;
-using System.Threading.Tasks;
-using System;
-using System.Linq;
 
 namespace Ares.Toolkit.Modbus.Tests;
 
