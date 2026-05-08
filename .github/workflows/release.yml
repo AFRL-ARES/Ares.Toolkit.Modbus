@@ -1,0 +1,28 @@
+on:
+  release:
+    types: [released]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+      - name: Set VERSION variable from tag
+        run: echo "VERSION=${GITHUB_REF/refs\/tags\/v/}" >> $GITHUB_ENV
+      - name: Build
+        run: dotnet build --configuration Release /p:Version=${VERSION}
+      - name: Test
+        run: dotnet test --configuration Release /p:Version=${VERSION} --no-build
+      - name: Pack
+        run: dotnet pack --configuration Release /p:Version=${VERSION} --no-build --output .
+        working-directory: Ares.Toolkit.Modbus
+      - name: Push
+        run: |
+          dotnet nuget push Ares.Toolkit.Modbus.${VERSION}.nupkg \
+          --api-key ${NUGET_TOKEN} \
+          --source https://api.nuget.org/v3/index.json \
+          --skip-duplicate
+        working-directory: Ares.Toolkit.Modbus
+        env:
+          NUGET_TOKEN: ${{ secrets.NUGET_TOKEN }}
